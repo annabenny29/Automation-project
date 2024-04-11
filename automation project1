@@ -1,0 +1,74 @@
+package Page;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Automationproject {
+ChromeDriver driver ;
+@BeforeTest
+public void setup()
+{
+	driver=new ChromeDriver();
+}
+@BeforeMethod
+public void abc()
+{
+	driver.get("https://www.yatra.com/");
+}
+@Test
+public void test1() throws InterruptedException
+{
+	driver.findElement(By.id("booking_engine_flights")).click();
+	driver.findElement(By.xpath("//a[@title='Round Trip']")).click();
+	WebElement a= driver.findElement(By.xpath("//*[@id=\"BE_flight_form_wrapper\"]/div[1]/div[2]/ul/li[1]/ul/li[1]/div/label"));
+	a.click();
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_origin_city\"]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_form_wrapper\"]/div[1]/div[2]/ul/li[1]/ul/li[1]/div/div/ul/div/div/div/li[1]/div[1]/p[2]")).click();
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_arrival_city\"]")).click();
+	Thread.sleep(2000);
+	WebElement aa=driver.findElement(By.xpath("//*[@id=\"BE_flight_arrival_city\"]"));
+	aa.sendKeys("mumbai");
+	driver.findElement(By.xpath("//*[@id=\"booking_engine_modues\"]/div/div[2]/div/i")).click();
+	}
+@Test
+public void test2() throws InterruptedException
+{
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_paxInfoBox\"]/i")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_passengerBox\"]/div[1]/div[1]/div/div/span[2]")).click();
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_passengerBox\"]/div[1]/div[2]/div/div/span[2]")).click();
+	driver.findElement(By.xpath("//*[@id=\"flight_class_select_child\"]/ul/li[1]")).click();
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_form_wrapper\"]/div[1]/div[2]/ul/li[2]/ul/li[1]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id=\"28/05/2024\"]")).click();
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_ret_cal\"]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@id=\"13/06/2024\"]")).click();
+	Thread.sleep(2000);
+	//driver.findElement(By.xpath("//*[@id=\"BE_flight_form_wrapper\"]/div[3]/div[1]/div[1]/a/i")).click();
+	driver.findElement(By.xpath("//*[@id=\"BE_flight_flsearch_btn\"]")).click();
+}
+@Test
+public void test3() throws InterruptedException
+{
+	driver.findElement(By.xpath("//*[@id=\"userLoginBlock\"]/a")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.id("signInBtn")).click();
+	driver.findElement(By.id("login-input")).sendKeys("lissybenny099@gmail.com");
+	driver.findElement(By.id("login-continue-btn")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.id("signup-mobile-number")).sendKeys("9496491554");
+	driver.findElement(By.id("signup-password")).sendKeys("abc@123");
+	driver.findElement(By.id("signup-user-designation")).click();
+	driver.findElement(By.id("signup-user-first-name")).sendKeys("lissy");
+	driver.findElement(By.id("signup-user-last-name")).sendKeys("benny");
+	driver.findElement(By.xpath("//*[@id=\"signup-form\"]/ul/li[8]/ul/li[1]/label")).click();
+	//driver.findElement(By.id("")).click();
+}
+}
